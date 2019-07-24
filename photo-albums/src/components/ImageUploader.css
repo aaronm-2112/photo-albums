@@ -1,4 +1,4 @@
-#form-fields {
-    margin-left: 25%;
-    
+.ImageUploader {
+    grid-column-start: 2; 
+    grid-column-end: 5; 
 }

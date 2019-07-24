@@ -1,0 +1,39 @@
+html, body {
+    height: 100%;
+}
+
+.layoutContainer {
+    display: grid; 
+    border: solid 3px;
+    grid-template-columns: .3fr 1fr 1fr .2fr;
+    width: 100%;
+    height:100%;
+    grid-template-areas: 
+       " . a a . "
+       " c b b . "
+       " c b b . "
+       " c b b . "
+       " . b b . "
+       " . b b . "
+       " . . . . ";
+       gap:50px;
+}
+
+.ImageUploader {
+    grid-area: a; 
+    margin-left: 25%; 
+}
+
+.ImageGrid {
+    grid-area: b; 
+    border: 5px solid #DFE1E6;
+    background: #fff;
+}
+
+.UserActions {
+    grid-area: c; 
+}
+
+.test {
+    border: solid 1px black; 
+}
