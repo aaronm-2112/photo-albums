@@ -3,7 +3,9 @@ import ImageUploader from './ImageUploader';
 import ImageDisplay from './ImageDisplay'; 
 import ImageLoader from '../ImageLoader'; 
 import VerticalNavigation from './VerticalNavigation';
+import DropDownMenu from './DropDownMenu'; 
 import './App.css'; 
+
 
 /* 
 Timeline:
@@ -27,14 +29,21 @@ class App extends React.Component {
     render() {
         return (
                 <div className="layoutContainer">
+                    <div className="logo">
+                        <i className="camera icon"> </i>
+                        <p>Corner Pictures</p>    
+                    </div>
                     <div className="ImageUploader"> 
                         <ImageUploader  displayPictures={this.displayPictures}/> 
+                    </div>
+                    <div className="DropDownMenu">
+                        <DropDownMenu />  
                     </div>
                     <div className="UserActions">
                         <div className="test"> <VerticalNavigation /></div>
                     </div>
                     <div className="ImageGrid"> 
-                        <ImageDisplay  pictureSource={this.state.pictureFileAsData} />
+                        <ImageDisplay pictureSource={this.state.pictureFileAsData} />
                     </div>
                 </div>
         );

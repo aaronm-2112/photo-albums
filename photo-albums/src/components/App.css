@@ -4,12 +4,11 @@ html, body {
 
 .layoutContainer {
     display: grid; 
-    border: solid 3px;
     grid-template-columns: .3fr 1fr 1fr .2fr;
     width: 100%;
     height:100%;
     grid-template-areas: 
-       " . a a . "
+       " l a a d "
        " c b b . "
        " c b b . "
        " c b b . "
@@ -36,4 +35,28 @@ html, body {
 
 .test {
     border: solid 1px black; 
+}
+
+.logo {
+    grid-area:l; 
+    width:110px;
+    height:45px;
+    background-size: cover;
+    margin-left:30px;
+    border: solid 1px; 
+    border-radius:10px;
+}
+
+.logo i {
+    margin-left: 40%;
+    margin-top: 5%;
+}
+
+.logo p {
+    font-family: Cursive, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 3px;
+}
+
+.DropDownMenu {
+    margin-right:30px;
 }

@@ -12,6 +12,7 @@ class ImageCard extends React.Component {
 
     componentDidMount() {
         console.log(this.imageRef.current);
+        
         //this.imageRef.current.addEventListener('load', this.set); 
     }
 

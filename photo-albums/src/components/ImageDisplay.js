@@ -1,6 +1,7 @@
 import React from 'react'; 
 import './ImageDisplay.css'; 
 import ImageCard from './ImageCard'; 
+import unsplash from '../unsplash.jpg';
 
 /*
 This functional component takes an array of image file dataURLS and places them into a set of image tags 
@@ -9,7 +10,12 @@ This functional component takes an array of image file dataURLS and places them 
 const ImageDisplay = (props) => {
     console.log(props.pictureSource)
     if(props.pictureSource.length === 0 ) {
-        return <div></div>; 
+        return (
+                <div className="initial_card">
+                    <p>Make memories. Save them to the cloud. Upload to begin.</p>
+                    <img src={unsplash} alt="Stock" className="stock_image"  />
+                </div>
+      );
     }
 
     const imageList = props.pictureSource.map((source, index) => {
