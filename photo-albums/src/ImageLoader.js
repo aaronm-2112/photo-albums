@@ -3,7 +3,7 @@
     //use the FileReader object and the readAsDataURL function to do so 
     //would use a map, but the FileReader object is not an array 
 
-function getSource(pictures, sourceResults) {
+function getSource(pictures, sourceResults, filesObject) {
     return new Promise(resolve => {
         //approach doesn't handle corrupt files.....figure that out 
         Array.from(pictures).forEach((picture) => {
@@ -12,8 +12,11 @@ function getSource(pictures, sourceResults) {
                  // The file's text will be printed here
                  //console.log(e.target.result)
                  sourceResults.push(e.target.result) 
-                 if(sourceResults.length === pictures.length) {
-                     resolve(sourceResults); 
+                 filesObject.pictureNameArray.push(picture.name)
+                 filesObject.pictureSourceArray.push(e.target.result)
+                 console.log("Test" + filesObject.fileName)
+                 if(filesObject.pictureSourceArray.length === pictures.length) {
+                     resolve(filesObject); 
                  }
              };
              reader.readAsDataURL(picture);      
@@ -25,6 +28,11 @@ function getSource(pictures, sourceResults) {
 
 export default async function loadImages (pictures) {    
         let fileSourceResults = []; 
-        const sourceResults = await getSource(pictures, fileSourceResults);  
+        let filesObject = {
+            pictureSourceArray: [] , 
+            pictureNameArray: []
+        }; 
+
+        const sourceResults = await getSource(pictures, fileSourceResults, filesObject);  
         return sourceResults; 
 }

@@ -18,9 +18,16 @@ class ImageCard extends React.Component {
 
     render() {
         return (
-            <div>
-                <img ref={this.imageRef} alt="User Value" src={this.props.src}  />
-            </div> 
+                <div className="ui link cards">
+                    <div className="card">
+                        <div className="image">
+                            <img ref={this.imageRef} alt="User Value" src={this.props.src}  />
+                        </div>
+                        <div className="content">
+                            <div className="header">{this.props.name}</div>
+                        </div>
+                    </div>
+                </div>   
         );
     }
 }

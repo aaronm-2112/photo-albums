@@ -3,7 +3,7 @@ import ImageUploader from './ImageUploader';
 import ImageDisplay from './ImageDisplay'; 
 import ImageLoader from '../ImageLoader'; 
 import VerticalNavigation from './VerticalNavigation';
-import DropDownMenu from './DropDownMenu'; 
+import SearchBar from './SearchBar'; 
 import './App.css'; 
 
 
@@ -17,36 +17,88 @@ Timeline:
 
 class App extends React.Component {
 
-    state = { pictureFileAsData: []}; 
+    state = { pictureData: {pictureSourceArray: [], pictureNameArray: []}, page: 'photos'}; 
 
     displayPictures = (pictureFiles) => {
         let picturesSourcePromise = ImageLoader(pictureFiles)
         picturesSourcePromise.then( elements  => {
-            this.setState({pictureFileAsData: elements})
-        })
+            this.setState({pictureData: elements})
+            console.log(elements)
+        })  
+    }
+
+    displayPage = (pageValue) => {
+        this.setState({page: pageValue})
     }
 
     render() {
-        return (
-                <div className="layoutContainer">
-                    <div className="logo">
-                        <i className="camera icon"> </i>
-                        <p>Corner Pictures</p>    
+
+        switch(this.state.page){
+            case 'photos':
+                return (
+                        <div className="layoutContainer">
+                            <div className="logo">
+                                <i className="camera icon"> </i>
+                                <p>Corner Pictures</p>    
+                            </div>
+                            <div className="ImageUploader"> 
+                                <ImageUploader  displayPictures={this.displayPictures}/> 
+                            </div>
+                            <div className="DropDownMenu">
+                                <SearchBar />  
+                            </div>
+                            <div className="UserActions">
+                                <div className="test"> <VerticalNavigation pageSelectionFunction={this.displayPage}/></div>
+                            </div>
+                            <div className="ImageGrid"> 
+                                <ImageDisplay pictureSource={this.state.pictureData} />
+                            </div>
+                        </div>
+                );
+                
+            case 'albums': 
+                return (
+                    <div className="layoutContainer">
+                        <div className="logo">
+                            <i className="camera icon"> </i>
+                            <p>Corner Pictures</p>    
+                        </div>
+                        <div className="ImageUploader"> 
+                            <ImageUploader  displayPictures={this.displayPictures}/> 
+                        </div>
+                        <div className="DropDownMenu">
+                            <SearchBar />  
+                        </div>
+                        <div className="UserActions">
+                            <div className="test"> <VerticalNavigation pageSelectionFunction={this.displayPage}/></div>
+                        </div>
+                        <div className="ImageGrid"> 
+                            <ImageDisplay pictureSource={this.state.pictureData} />
+                        </div>
                     </div>
-                    <div className="ImageUploader"> 
-                        <ImageUploader  displayPictures={this.displayPictures}/> 
+                );
+        
+            case 'account':
+                return (
+                    <div className="layoutContainer">
+                        <div className="logo">
+                            <i className="camera icon"> </i>
+                            <p>Corner Pictures</p>    
+                        </div>
+                        <div className="ImageUploader"> 
+                            <ImageUploader  displayPictures={this.displayPictures}/> 
+                        </div>
+                        <div className="DropDownMenu">
+                            <SearchBar />  
+                        </div>
+                        <div className="UserActions">
+                            <div className="test"> <VerticalNavigation pageSelectionFunction={this.displayPage}/></div>
+                        </div>
+                        
                     </div>
-                    <div className="DropDownMenu">
-                        <DropDownMenu />  
-                    </div>
-                    <div className="UserActions">
-                        <div className="test"> <VerticalNavigation /></div>
-                    </div>
-                    <div className="ImageGrid"> 
-                        <ImageDisplay pictureSource={this.state.pictureFileAsData} />
-                    </div>
-                </div>
-        );
+                );
+
+        }
     }; 
 }
 

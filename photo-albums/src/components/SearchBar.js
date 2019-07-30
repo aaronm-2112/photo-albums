@@ -2,7 +2,7 @@ import React from 'react';
 
 
 
-const DropDownMenu = () => {
+const SearchBar = () => {
     
     return (
             <div className="ui icon input">
@@ -13,4 +13,4 @@ const DropDownMenu = () => {
     );
 }
 
-export default DropDownMenu; 
+export default SearchBar; 
