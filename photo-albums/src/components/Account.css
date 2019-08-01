@@ -1,0 +1,6 @@
+.AccountDisplay {
+    display: grid; 
+    grid-template-columns: 1; 
+    grid-template-rows: auto; 
+    gap: 10px;
+}

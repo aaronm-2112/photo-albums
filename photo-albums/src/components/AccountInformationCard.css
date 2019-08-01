@@ -1,0 +1,21 @@
+.AccountInfoCard {
+    display: grid; 
+    grid-template-columns: repeat(3, .5fr);
+    grid-template-areas: "f s l";
+    
+}
+
+.first_field {
+    grid-area: f;
+}
+
+.second_field {
+    grid-area: s;
+    border: solid 1px black; 
+    border-radius: 10px;
+}
+
+.third_field{
+    grid-area: l;
+    margin-left: 50%;
+}

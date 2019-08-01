@@ -4,13 +4,14 @@ import ImageDisplay from './ImageDisplay';
 import ImageLoader from '../ImageLoader'; 
 import VerticalNavigation from './VerticalNavigation';
 import SearchBar from './SearchBar'; 
+import Account from './Account';
 import './App.css'; 
 
 
 /* 
 Timeline:
 1. CSS of files os they display prettily + non-functional UI elements
-2. Profile syste, and persistent storage of pics. 
+2. Profile system, and persistent storage of pics. 
 3. Image previews 
 
 */
@@ -94,7 +95,9 @@ class App extends React.Component {
                         <div className="UserActions">
                             <div className="test"> <VerticalNavigation pageSelectionFunction={this.displayPage}/></div>
                         </div>
-                        
+                        <div className="AccountGrid"> 
+                            <Account />
+                        </div>
                     </div>
                 );
 

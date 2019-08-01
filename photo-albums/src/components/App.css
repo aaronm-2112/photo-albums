@@ -29,6 +29,12 @@ html, body {
     background: #fff;
 }
 
+.AccountGrid {
+    grid-area: b; 
+    border: 5px solid #DFE1E6;
+    background: #fff;
+}
+
 .UserActions {
     grid-area: c; 
 }
